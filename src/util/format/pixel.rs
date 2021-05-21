@@ -353,6 +353,10 @@ pub enum Pixel {
     RPI4_8,
     #[cfg(feature = "rpi")]
     RPI4_10,
+
+    // Pixels that need to be added for the codebase to build.
+    X2RGB10LE,
+    X2RGB10BE,
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -687,6 +691,10 @@ impl From<AVPixelFormat> for Pixel {
             AV_PIX_FMT_RPI4_8 => Pixel::RPI4_8,
             #[cfg(feature = "rpi")]
             AV_PIX_FMT_RPI4_10 => Pixel::RPI4_10,
+
+            // Branches that need to be added for the codebase to build.
+            AV_PIX_FMT_X2RGB10LE => Pixel::X2RGB10LE,
+            AV_PIX_FMT_X2RGB10BE => Pixel::X2RGB10BE,
         }
     }
 }
@@ -1041,6 +1049,10 @@ impl Into<AVPixelFormat> for Pixel {
             Pixel::RPI4_8 => AV_PIX_FMT_RPI4_8,
             #[cfg(feature = "rpi")]
             Pixel::RPI4_10 => AV_PIX_FMT_RPI4_10,
+
+            // Branches that need to be added for the codebase to build.
+            Pixel::X2RGB10LE => AV_PIX_FMT_X2RGB10LE,
+            Pixel::X2RGB10BE => AV_PIX_FMT_X2RGB10BE,
         }
     }
 }
